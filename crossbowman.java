@@ -12,8 +12,23 @@ public class crossbowman extends abClass {
 
 
 
-    public crossbowman(int speed,int damage, int hp,int distance) {
-        super(speed,damage,hp);
+    public crossbowman(int speed,int damage, int hp,int distance, String name) {
+        super(speed,damage,hp, name);
         this.distance = distance;
+    }
+
+    @Override
+    public void step(){
+        shooting();
+    }
+
+    @Override
+    public void getInfo(){
+        System.out.println("Class: crossbowman, name: "+name);
+
+    }
+    @Override 
+    public void getStat(){
+        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp+" distance: "+distance);
     }
 }

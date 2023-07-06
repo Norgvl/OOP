@@ -1,12 +1,26 @@
 public class peasant extends abClass {
 
-    public void building(int impact){
-        damage = damage + impact;
-        System.out.println("buildings impact increase peasants damage on "+ impact);
+    public void building(){
+        damage = damage + 1;
+        System.out.println("buildings impact increase peasants damage on 1");
     }
     
-    public peasant(int speed, int damage, int hp) {
-        super(speed, damage,hp);
+    public peasant(int speed, int damage, int hp, String name) {
+        super(speed, damage,hp,name);
     }
     
+        @Override
+    public void step(){
+        building();
+    }
+
+    @Override
+    public void getInfo(){
+        System.out.println("Class: peasant, name: "+name);
+
+    }
+            @Override 
+    public void getStat(){
+        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp);
+    }
 }

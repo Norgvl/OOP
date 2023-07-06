@@ -1,20 +1,34 @@
 public class thief extends abClass {
 
-    private int invisible = 0;
+    private int visibility = 0;
     public void hiding(){
-        if (invisible == 0){
+        if (visibility == 0){
             System.out.println("Becomes invisible");
-            invisible = 1;
+            visibility = 1;
         }
         else{
             System.out.println("Becomes visible");
-            invisible = 0;
+            visibility = 0;
         }
 
     }
 
-    public thief(int speed, int damage, int hp) {
-        super(speed, damage,hp);
+    public thief(int speed, int damage, int hp, String name) {
+        super(speed, damage,hp, name);
+    }
+        @Override
+    public void step(){
+        hiding();
+    }
+
+    @Override
+    public void getInfo(){
+        System.out.println("Class: thief, name: "+name);
+
+    }
+            @Override 
+    public void getStat(){
+        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp+" visibility status: "+visibility);
     }
 
     

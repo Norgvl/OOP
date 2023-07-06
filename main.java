@@ -1,16 +1,103 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 public class main {
 
     public static void main(String[] args) {
         
-        crossbowman Crossbowman = new crossbowman(1, 2, 3, 4);
-        lancer Lancer = new lancer(2, 1, 3);
-        monk Monk = new monk(1, 3, 2);
-        peasant Peasant = new peasant(1, 1, 1);
-        sniper Sniper = new sniper(1, 3, 1, 10, 2);
-        sorcerer Sorcerer = new sorcerer(1, 1, 2, 3);
-        thief Thief = new thief(3, 2, 1);
+
+        ArrayList <abClass> array1 = new ArrayList<>();
+        ArrayList <abClass> array2 = new ArrayList<>();
+        String[] names = new String[5];
+        names[0] = "a";
+        names[1] = "b";
+        names[2] = "c";
+        names[3] = "d";
+        names[4] = "e";
+
+        for (int i = 0; i < 7; i++) {
+            
+            int r = new Random().nextInt(7);
+            int n = new Random().nextInt(5);
+            switch (r) {
+                case 0: {
+                    array1.add(new crossbowman(1, 1, 1, 1, names[n]));
+                    break;
+                }
+                case 1: {
+                    array1.add(new lancer(i, r, n, names[n]));
+                    break;
+                }
+                case 2: {
+                    array1.add(new monk(i, r, n, names[n]));
+                    break;
+                }
+                case 3: {
+                    array1.add(new peasant(i, r, n, names[n]));
+                    break;
+                }
+                case 4: {
+                    array1.add(new sniper(n, n, i, n, r, names[n]));
+                    break;
+                }
+                case 5: {
+                    array1.add(new sorcerer(n, i, r, n, names[n]));
+                    break;
+                }
+                case 6:{
+                    array1.add(new thief(i, r, n, names[n]));
+                    break;
+                }
+            }
+        }
         
+        for (int i = 0; i < 7; i++) {
+            
+            int r = new Random().nextInt(7);
+            int n = new Random().nextInt(5);
+            switch (r) {
+                case 0: {
+                    array2.add(new crossbowman(1, 1, 1, 1, names[n]));
+                    break;
+                }
+                case 1: {
+                    array2.add(new lancer(i, r, n, names[n]));
+                    break;
+                }
+                case 2: {
+                    array2.add(new monk(i, r, n, names[n]));
+                    break;
+                }
+                case 3: {
+                    array2.add(new peasant(i, r, n, names[n]));
+                    break;
+                }
+                case 4: {
+                    array2.add(new sniper(n, n, i, n, r, names[n]));
+                    break;
+                }
+                case 5: {
+                    array2.add(new sorcerer(n, i, r, n, names[n]));
+                    break;
+                }
+                case 6:{
+                    array2.add(new thief(i, r, n, names[n]));
+                    break;
+                }
+            }
+        }
+        for (abClass a : array1) {
+            a.getInfo();
+            a.getStat();
+            
+        }
+        System.out.println(" ");
 
+        for (abClass a : array2) {
+            a.getInfo();
+            a.getStat();
+            
+        }        
+         
     }
-
 }

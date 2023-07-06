@@ -5,7 +5,21 @@ public class lancer extends abClass {
     }
     
 
-    public lancer(int speed, int damage, int hp) {
-        super(speed,damage,hp);
+    public lancer(int speed, int damage, int hp, String name) {
+        super(speed,damage,hp, name);
+    }
+        @Override
+    public void step(){
+        stabbing();
+    }
+
+    @Override
+    public void getInfo(){
+        System.out.println("Class: lancer, name: "+name);
+
+    }
+        @Override 
+    public void getStat(){
+        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp);
     }
 }

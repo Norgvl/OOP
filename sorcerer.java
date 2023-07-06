@@ -12,8 +12,22 @@ public class sorcerer extends abClass{
         }
     }
 
-    public sorcerer(int speed, int damage, int hp, int manna) {
-        super(speed, damage,hp);
+    public sorcerer(int speed, int damage, int hp, int manna, String name) {
+        super(speed, damage,hp, name);
         this.manna = manna;
+    }
+        @Override
+    public void step(){
+        spell();
+    }
+
+    @Override
+    public void getInfo(){
+        System.out.println("Class: sorcerer, name: "+name);
+
+    }
+            @Override 
+    public void getStat(){
+        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp+" manna: "+manna);
     }
 }

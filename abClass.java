@@ -1,4 +1,4 @@
-public abstract class abClass {
+public abstract class abClass implements inGameInterface {
     public int hp;
     public int damage;
     public int speed;
@@ -8,33 +8,21 @@ public abstract class abClass {
     return this.name = name;
     }
 
-    public int setSpeed(int speed){
-        return this.speed = speed;
-    }
-
     public void setBoost(int boost){
 
         this.speed = this.speed + boost;
     }
 
-    public void setDamage(int damage){
-        this.damage = damage;
-    }
-
-    public void setHp(int hp){
-        this.hp = hp;
+    public void setGain(int damage){
+        this.damage = this.damage + damage;
     }
 
 
-    public String getName() {return name;}
-    public int getDamage() {return damage;}
-    public int getHp() {return hp;}
-
-
-    public abClass(int speed, int damage, int hp) {
+    public abClass(int speed, int damage, int hp, String name) {
         this.speed = speed;
         this.damage = damage;
         this.hp = hp;
+        this.name = name;
     }
 
     public void go(){
