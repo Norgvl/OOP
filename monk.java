@@ -5,8 +5,8 @@ public class monk extends abClass {
         System.out.println("heals 1 hp");
     }
 
-    public monk(int speed, int damage, int hp, String name) {
-        super(speed, damage,hp, name);
+    public monk(int speed, int damage, int hp, String name,int x, int y) {
+        super(speed, damage,hp, name,x,y);
     }
         @Override
     public void step(){

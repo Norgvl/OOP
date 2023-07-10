@@ -12,8 +12,8 @@ public class sorcerer extends abClass{
         }
     }
 
-    public sorcerer(int speed, int damage, int hp, int manna, String name) {
-        super(speed, damage,hp, name);
+    public sorcerer(int speed, int damage, int hp, int manna, String name,int x, int y) {
+        super(speed, damage,hp, name,x,y);
         this.manna = manna;
     }
         @Override

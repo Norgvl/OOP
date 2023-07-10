@@ -5,8 +5,8 @@ public class lancer extends abClass {
     }
     
 
-    public lancer(int speed, int damage, int hp, String name) {
-        super(speed,damage,hp, name);
+    public lancer(int speed, int damage, int hp, String name, int x, int y) {
+        super(speed,damage,hp, name,x,y);
     }
         @Override
     public void step(){

@@ -5,8 +5,8 @@ public class peasant extends abClass {
         System.out.println("buildings impact increase peasants damage on 1");
     }
     
-    public peasant(int speed, int damage, int hp, String name) {
-        super(speed, damage,hp,name);
+    public peasant(int speed, int damage, int hp, String name,int x,int y) {
+        super(speed, damage,hp,name,x,y);
     }
     
         @Override
