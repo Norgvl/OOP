@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class monk extends abClass {
 
     public void pray(){
@@ -9,7 +11,7 @@ public class monk extends abClass {
         super(speed, damage,hp, name,x,y);
     }
         @Override
-    public void step(){
+    public void step(abClass character, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
         pray();
     }
 

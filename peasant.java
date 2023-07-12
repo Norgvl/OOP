@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class peasant extends abClass {
 
     public void building(){
@@ -10,7 +12,7 @@ public class peasant extends abClass {
     }
     
         @Override
-    public void step(){
+    public void step(abClass character, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
         building();
     }
 

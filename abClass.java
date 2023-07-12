@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class abClass extends coordinates implements inGameInterface  {
     public int hp;
     public int damage;
@@ -50,5 +52,29 @@ public abstract class abClass extends coordinates implements inGameInterface  {
         return a;
     }
     
+    public abClass getClosestEnemy(ArrayList<abClass> enemArrayList, abClass unit){   
+
+        abClass closest = enemArrayList.get(0);
+        int minRange = unit.getRange(unit.getCoord(), enemArrayList.get(0).getCoord());
+        for (abClass i: enemArrayList) {
+            int sum = unit.getRange(unit.getCoord(), i.getCoord());
+            if (minRange > sum){
+                minRange = sum;
+                closest = i;
+            }
+        }
+        return closest;
+    }
+
+    public boolean cont(ArrayList<abClass> array){
+        for (abClass a : array) {
+            if (a.getClass() == peasant.class){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
     
 }

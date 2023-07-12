@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class thief extends abClass {
 
     private int visibility = 0;
@@ -17,7 +19,7 @@ public class thief extends abClass {
         super(speed, damage,hp, name,x,y);
     }
         @Override
-    public void step(){
+    public void step(abClass character, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
         hiding();
     }
 

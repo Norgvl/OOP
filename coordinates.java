@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class coordinates {
     public int x;
     public int y;
@@ -5,4 +7,5 @@ public abstract class coordinates {
         this.x = x;
         this.y = y;
     }
+
 }

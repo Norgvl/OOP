@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class sorcerer extends abClass{
     private int manna;
 
@@ -17,7 +19,7 @@ public class sorcerer extends abClass{
         this.manna = manna;
     }
         @Override
-    public void step(){
+    public void step(abClass character, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
         spell();
     }
 

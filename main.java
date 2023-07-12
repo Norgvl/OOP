@@ -23,7 +23,7 @@ public class main {
             int y = new Random().nextInt(5);
             switch (r) {
                 case 0: {
-                    array1.add(new crossbowman(1, 1, 1, 1, names[n],x,y));
+                    array1.add(new crossbowman(y, y, i, n, r, names[n], x, y));
                     break;
                 }
                 case 1: {
@@ -61,7 +61,7 @@ public class main {
             int y = new Random().nextInt(5);
             switch (r) {
                 case 0: {
-                    array2.add(new crossbowman(1, 1, 1, 1, names[n],x,y));
+                    array2.add(new crossbowman(y, y, i, n, r, names[n], x, y));
                     break;
                 }
                 case 1: {
@@ -90,6 +90,8 @@ public class main {
                 }
             }
         }
+        
+        array1.set(0, new crossbowman(1, 1, 2, 2, 2,"cr1", 1, 2));
         for (abClass a : array1) {
             a.getInfo();
             a.getStat();
@@ -103,20 +105,8 @@ public class main {
             System.out.println(a.getCoord()[0]+", "+ a.getCoord()[1]);
             
         }        
-        System.out.println("");
-        System.out.println("");
-        int index = 0;
-        int minRange = array1.get(0).getRange(array1.get(0).getCoord(), array2.get(0).getCoord());
-        for (int j = 0; j < array1.size(); j++) {
-            int sum = array1.get(0).getRange(array1.get(0).getCoord(), array2.get(j).getCoord());
-            if (minRange > sum){
-                minRange = sum;
-                index = j;
+        
+        array1.get(0).step(array1.get(0), array2, array1);
 
-            };
-            
-            
-        }
-        System.out.println("Closest character: Name: "+array2.get(index).getName()+", Coordinates: ["+array2.get(index).getCoord()[0]+", "+array2.get(index).getCoord()[1]+"], Range: "+minRange);
     }
 }

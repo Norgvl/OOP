@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class sniper extends abClass {
 
     private int distance;
@@ -13,7 +15,7 @@ public class sniper extends abClass {
         this.accuracy = accuracy;
     }
         @Override
-    public void step(){
+    public void step(abClass character, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
         sniperShooting();
     }
 

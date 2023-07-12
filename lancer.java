@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class lancer extends abClass {
 
     public void stabbing(){
@@ -9,7 +11,7 @@ public class lancer extends abClass {
         super(speed,damage,hp, name,x,y);
     }
         @Override
-    public void step(){
+    public void step(abClass character, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
         stabbing();
     }
 
