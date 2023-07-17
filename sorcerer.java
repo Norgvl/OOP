@@ -1,18 +1,9 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class sorcerer extends abClass{
     private int manna;
 
-    public void spell(){
-        if (manna == 0){
-            System.out.println("No manna");
-
-        }
-        else{
-            System.out.println("Casts a spell using 1 manna, dealing "+damage+"damage");
-            manna--;
-        }
-    }
 
     public sorcerer(int speed, int damage, int hp, int manna, String name,int x, int y) {
         super(speed, damage,hp, name,x,y);
@@ -20,7 +11,19 @@ public class sorcerer extends abClass{
     }
         @Override
     public void step(abClass character, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
-        spell();
+        if(manna <= 0 || hp <= 0){return;}
+        abClass clTeammate = getClosestTeammate(myArray, character);
+        abClass clEnemy = getClosestEnemy(enArray, character);
+        if (getRange(character.getCoord(), clTeammate.getCoord()) < getRange(character.getCoord(),clEnemy.getCoord()) && clTeammate.hp<6){
+            clTeammate.hp += character.damage*new Random().nextInt(2);
+            manna--;
+        }
+        if (clEnemy.hp > 0) {
+            
+            clEnemy.hp -= character.damage*new Random().nextInt(2);
+            manna--;
+        }
+        else return;
     }
 
     @Override
@@ -29,7 +32,7 @@ public class sorcerer extends abClass{
 
     }
             @Override 
-    public void getStat(){
-        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp+" manna: "+manna);
+    public String getStat(){
+        return "damage: "+damage+" speed: "+speed+" hp: "+hp+" manna: "+manna+" Class: sorcerer";
     }
 }

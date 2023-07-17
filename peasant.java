@@ -2,18 +2,18 @@ import java.util.ArrayList;
 
 public class peasant extends abClass {
 
-    public void building(){
-        damage = damage + 1;
-        System.out.println("buildings impact increase peasants damage on 1");
-    }
+    public String status = "Ready"; 
+
     
     public peasant(int speed, int damage, int hp, String name,int x,int y) {
         super(speed, damage,hp,name,x,y);
     }
     
+    
+
         @Override
     public void step(abClass character, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
-        building();
+        status = "Ready";
     }
 
     @Override
@@ -22,7 +22,9 @@ public class peasant extends abClass {
 
     }
             @Override 
-    public void getStat(){
-        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp);
+    public String getStat(){
+        return "damage: "+damage+" speed: "+speed+" hp: "+hp+" Class: peasant";
     }
+
+
 }

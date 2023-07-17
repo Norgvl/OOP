@@ -29,8 +29,8 @@ public class thief extends abClass {
 
     }
             @Override 
-    public void getStat(){
-        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp+" visibility status: "+visibility);
+    public String getStat(){
+        return "damage: "+damage+" speed: "+speed+" hp: "+hp+" visibility status: "+visibility;
     }
 
     

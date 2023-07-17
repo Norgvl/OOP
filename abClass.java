@@ -5,6 +5,7 @@ public abstract class abClass extends coordinates implements inGameInterface  {
     public int damage;
     public int speed;
     public String name;
+    public String status = "Ready";
 
     public String setName (String name){
     return this.name = name;
@@ -30,6 +31,10 @@ public abstract class abClass extends coordinates implements inGameInterface  {
         this.hp = hp;
         this.name = name;
         
+    }
+
+    public int getHp() {
+        return hp;
     }
 
     public void go(){
@@ -66,6 +71,24 @@ public abstract class abClass extends coordinates implements inGameInterface  {
         return closest;
     }
 
+    public abClass getClosestTeammate(ArrayList<abClass> teamArrayList, abClass unit){
+        
+        abClass closest = teamArrayList.get(0);
+        int minRange = unit.getRange(unit.getCoord(), teamArrayList.get(0).getCoord());
+        if (minRange == 0){
+            minRange = unit.getRange(unit.getCoord(), teamArrayList.get(1).getCoord());
+        }
+        for (abClass i: teamArrayList) {
+            int sum = unit.getRange(unit.getCoord(), i.getCoord());
+            if (minRange > sum && sum !=0){
+                minRange = sum;
+                closest = i;
+            }
+        }
+        return closest;
+
+    } 
+
     public boolean cont(ArrayList<abClass> array){
         for (abClass a : array) {
             if (a.getClass() == peasant.class){
@@ -75,6 +98,29 @@ public abstract class abClass extends coordinates implements inGameInterface  {
         return false;
 
     }
+        public boolean contHp(ArrayList<abClass> array){
+        for (abClass a : array) {
+            if (a.getClass() == peasant.class){
+                if (a.hp >= 0) {return true;} 
+            }
+        }
+        return false;
+
+    }
+
+        public boolean contReady(ArrayList<abClass> array){
+        for (abClass a : array) {
+            if (a.getClass() == peasant.class){
+                if (a.status == "Ready") {
+                    a.status = "Busy";
+                    return true;
+                } 
+            }
+        }
+        return false;
+
+    }
+
 
     
 }

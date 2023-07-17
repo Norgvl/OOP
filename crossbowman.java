@@ -11,10 +11,6 @@ public class crossbowman extends abClass {
         this.range = range;
     }
 
-    public void shooting() {
-        System.out.println("Shoots on range: "+this.range+", dealing "+this.damage+" damage");
-    }
-
 
 
     public crossbowman(int speed,int damage, int hp,int range, int arrows, String name, int x, int y) {
@@ -33,10 +29,13 @@ public class crossbowman extends abClass {
         return;
         }
         abClass enemy = getClosestEnemy(enArray, crossbowman);
-
-        enemy.hp -= crossbowman.damage*new Random().nextInt(2);
-
         if (cont(myArray)) {return;}
+        if (contHp(myArray)) {return;}
+        if (contReady(myArray)) {return;}
+        if (enemy.hp > 0){
+            enemy.hp -= crossbowman.damage*new Random().nextInt(2);
+        } else return;
+
 
         arrows -= 1;
 
@@ -51,7 +50,7 @@ public class crossbowman extends abClass {
     }
 
     @Override 
-    public void getStat(){
-        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp+" range: "+range);
+    public String getStat(){
+        return "damage: "+damage+" speed: "+speed+" hp: "+hp+" arrows: "+arrows+" Class: crossbowman";
     }
 }

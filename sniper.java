@@ -25,8 +25,8 @@ public class sniper extends abClass {
 
     }
             @Override 
-    public void getStat(){
-        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp+" distance: "+distance+" accuracy: "+accuracy);
+    public String getStat(){
+        return "damage: "+damage+" speed: "+speed+" hp: "+hp+" distance: "+distance+" accuracy: "+accuracy;
     }
     
 }

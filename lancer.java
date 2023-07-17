@@ -21,7 +21,7 @@ public class lancer extends abClass {
 
     }
         @Override 
-    public void getStat(){
-        System.out.println("damage: "+damage+" speed: "+speed+" hp: "+hp);
+    public String getStat(){
+        return "damage: "+damage+" speed: "+speed+" hp: "+hp;
     }
 }
