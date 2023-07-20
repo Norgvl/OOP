@@ -63,7 +63,7 @@ public abstract class abClass extends coordinates implements inGameInterface  {
         int minRange = unit.getRange(unit.getCoord(), enemArrayList.get(0).getCoord());
         for (abClass i: enemArrayList) {
             int sum = unit.getRange(unit.getCoord(), i.getCoord());
-            if (minRange > sum){
+            if (minRange > sum && i.hp > 0){
                 minRange = sum;
                 closest = i;
             }
@@ -80,7 +80,7 @@ public abstract class abClass extends coordinates implements inGameInterface  {
         }
         for (abClass i: teamArrayList) {
             int sum = unit.getRange(unit.getCoord(), i.getCoord());
-            if (minRange > sum && sum !=0){
+            if (minRange > sum && sum !=0 && i.hp > 0){
                 minRange = sum;
                 closest = i;
             }
@@ -101,7 +101,7 @@ public abstract class abClass extends coordinates implements inGameInterface  {
         public boolean contHp(ArrayList<abClass> array){
         for (abClass a : array) {
             if (a.getClass() == peasant.class){
-                if (a.hp >= 0) {return true;} 
+                if (a.hp > 0) {return true;} 
             }
         }
         return false;
@@ -120,6 +120,47 @@ public abstract class abClass extends coordinates implements inGameInterface  {
         return false;
 
     }
+
+        public boolean checkUnit(ArrayList<abClass> array, int[] coords, abClass character){
+            for (abClass a : array) {
+                if (a.getCoord()[0] == coords[0] && a.getCoord()[1] == coords[1] && a != character && a.hp >0){
+                    return true;
+                }
+        }
+        return false;
+    }
+        public abClass checkEnemyReturn(ArrayList<abClass> array, int[] coords){
+            for (int x = coords[0] - 1; x <= coords[0] + 1; x++){
+                for (int y = coords[1] - 1; y <= coords[1] + 1; y++) {
+                    for (abClass a : array) {
+                        if (a.hp > 0 && a.getCoord()[0] == x && a.getCoord()[1] == y){
+                            return a;
+                        }
+                        
+                    }
+                    
+                }
+            }
+            return null;
+
+        } 
+
+            public boolean checkEnemyBool(ArrayList<abClass> array, int[] coords){
+            for (int x = coords[0] - 1; x <= coords[0] + 1; x++){
+                for (int y = coords[1] - 1; y <= coords[1] + 1; y++) {
+                    for (abClass a : array) {
+                        if (a.hp > 0 && a.getCoord()[0] == x && a.getCoord()[1] == y){
+                            return true;
+                        }
+                        
+                    }
+                    
+                }
+            }
+            return false;
+
+        } 
+
 
 
     

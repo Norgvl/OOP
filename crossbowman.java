@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class crossbowman extends abClass {
-
-    private int range; 
+    int range;
     
     private int arrows;
 

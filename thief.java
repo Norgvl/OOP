@@ -1,26 +1,48 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class thief extends abClass {
 
-    private int visibility = 0;
-    public void hiding(){
-        if (visibility == 0){
-            System.out.println("Becomes invisible");
-            visibility = 1;
-        }
-        else{
-            System.out.println("Becomes visible");
-            visibility = 0;
-        }
 
-    }
 
     public thief(int speed, int damage, int hp, String name,int x, int y) {
         super(speed, damage,hp, name,x,y);
     }
         @Override
     public void step(abClass character, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
-        hiding();
+             if (character.hp <= 0){return;}
+            abClass clEnemy = character.getClosestEnemy(enArray, character);
+            int[] startCoord = character.getCoord();
+            if (clEnemy.getCoord()[0] - character.getCoord()[0] > 1)
+            {   
+                character.x += 1;
+
+            }
+            if (clEnemy.getCoord()[1] - character.getCoord()[1] > 1 ){
+                character.y += 1;
+            }
+            if (checkUnit(myArray, character.getCoord(), character)){
+                character.x = startCoord[0];
+                character.y = startCoord[1];
+            }
+            if (clEnemy.getCoord()[0] - character.getCoord()[0] < -1)
+            {   
+                character.x -= 1;
+
+            }
+            if (clEnemy.getCoord()[1] - character.getCoord()[1] < -1 ){
+                character.y -= 1;
+            }
+            if (checkUnit(myArray, character.getCoord(), character)){
+                character.x = startCoord[0];
+                character.y = startCoord[1];
+            }
+            if (checkEnemyBool(enArray, character.getCoord())) {
+                checkEnemyReturn(enArray, character.getCoord()).hp -= character.damage*new Random().nextInt(2);
+            }
+            return;
+
+
     }
 
     @Override
@@ -30,7 +52,7 @@ public class thief extends abClass {
     }
             @Override 
     public String getStat(){
-        return "damage: "+damage+" speed: "+speed+" hp: "+hp+" visibility status: "+visibility;
+        return "damage: "+damage+" speed: "+speed+" hp: "+hp+" Class: thief";
     }
 
     

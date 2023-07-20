@@ -15,7 +15,7 @@ public class main {
         names[3] = "d";
         names[4] = "e";
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 11; i++) {
             
             int r = ThreadLocalRandom.current().nextInt(1,7);
             int n = ThreadLocalRandom.current().nextInt(1,5);
@@ -31,7 +31,7 @@ public class main {
                     break;
                 }
                 case 2: {
-                    array1.add(new monk(i, r, 6, names[n],1,i));
+                    array1.add(new monk(i, r, 6, r, names[n],1,i));
                     break;
                 }
                 case 3: {
@@ -39,7 +39,7 @@ public class main {
                     break;
                 }
                 case 4: {
-                    array1.add(new sniper(n, n, 6, n, r, names[n],1,i));
+                    array1.add(new sniper(n, n, 6, n, r,n, names[n],1,i));
                     break;
                 }
                 case 5: {
@@ -53,7 +53,7 @@ public class main {
             }
         }
         
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 11; i++) {
             
             int r = ThreadLocalRandom.current().nextInt(1,7);
             int n = ThreadLocalRandom.current().nextInt(1,5);
@@ -69,7 +69,7 @@ public class main {
                     break;
                 }
                 case 2: {
-                    array2.add(new monk(i, r, 6, names[n],10,i));
+                    array2.add(new monk(i, r, 6,r, names[n],10,i));
                     break;
                 }
                 case 3: {
@@ -77,7 +77,7 @@ public class main {
                     break;
                 }
                 case 4: {
-                    array2.add(new sniper(n, n, 6, n, r, names[n],10,i));
+                    array2.add(new sniper(n, n, 6, n, r, n,names[n],10,i));
                     break;
                 }
                 case 5: {
@@ -93,24 +93,7 @@ public class main {
         allTeam.addAll(array1);
         allTeam.addAll(array2);
 
-        
-        // array1.set(0, new crossbowman(1, 1, 2, 2, 2,"cr1", 1, 2));
-        // for (abClass a : array1) {
-        //     a.getInfo();
-        //     a.getStat();
-        //     System.out.println(a.getCoord()[0]+", "+ a.getCoord()[1]);
-        // }
-        // System.out.println(" ");
-
-        // for (abClass a : array2) {
-        //     a.getInfo();
-        //     a.getStat();
-        //     System.out.println(a.getCoord()[0]+", "+ a.getCoord()[1]);
-            
-        // }        
-        
-        // array1.get(0).step(array1.get(0), array2, array1);
-
+    
         Scanner in = new Scanner(System.in);
         while (true){
             View.view();
@@ -122,6 +105,32 @@ public class main {
                 } else a.step(a, array2, array1);
                 
             }
+            for (abClass s : allTeam) {
+                if (s.hp < 0){s.hp = 0;}
+                
+            }
+            int count =0;
+            for (abClass s : array1) {
+
+                if (s.hp == 0){count++;}
+                
+            }            
+            if(count == 10)
+                {System.out.println("First team is dead");
+                return;
+            }
+            count = 0;
+            for (abClass s : array2) {
+
+                if (s.hp == 0){count++;}
+                if (count == 10){
+                    System.out.println("Second team is dead");
+                    return;
+                }
+                
+            }   
+
         }
     }
 }
+
