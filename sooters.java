@@ -1,14 +1,16 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class crossbowman extends sooters {
+public abstract class sooters extends abClass {
+    public int range;
+    public int arrows;
 
 
 
-
-
-    public crossbowman(int speed,int damage, int hp,int range, int arrows, String name, int x, int y) {
-        super(speed,damage,hp,range,arrows, name, x,y);
+    public sooters(int speed,int damage, int hp,int range, int arrows, String name, int x, int y) {
+        super(speed,damage,hp, name, x,y);
+        this.range = range;
+        this.arrows = arrows;
     }
     @Override
     public void  step(abClass crossbowman, ArrayList<abClass> enArray, ArrayList<abClass> myArray){
@@ -43,6 +45,6 @@ public class crossbowman extends sooters {
 
     @Override 
     public String getStat(){
-        return "damage: "+damage+" speed: "+speed+" hp: "+hp+" arrows: "+arrows+" Class: crossbowman";
+        return "damage: "+damage+" speed: "+speed+" hp: "+hp+" arrows: "+arrows+" Class:";
     }
 }
