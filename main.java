@@ -39,7 +39,7 @@ public class main {
                     break;
                 }
                 case 4: {
-                    array1.add(new sniper(n, n, 6, n, r,n, names[n],1,i));
+                    array1.add(new sniper(n, n, 6, n, r, names[n],1,i));
                     break;
                 }
                 case 5: {
@@ -77,7 +77,7 @@ public class main {
                     break;
                 }
                 case 4: {
-                    array2.add(new sniper(n, n, 6, n, r, n,names[n],10,i));
+                    array2.add(new sniper(n, n, 6, n, r,names[n],10,i));
                     break;
                 }
                 case 5: {
